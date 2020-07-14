@@ -42,48 +42,53 @@ document.getElementById("search_btn").addEventListener("click", (e) => {
   //read input value
   let searchKeywords = document.getElementById("search").value;
   //create div called card
-  let cards = document.createElement("div");
-  cards.setAttribute("class", "card");
-  //create card-body
 
-  let card_body = document.createElement("div");
-  card_body.setAttribute("class", "card-body");
+  if (searchKeywords.length > 0) {
+    let cards = document.createElement("div");
+    cards.setAttribute("class", "card");
+    //create card-body
 
-  let title = document.createElement("h5");
-  title.setAttribute("class", "card-title");
-  title.innerHTML = searchKeywords;
-  card_body.appendChild(title);
+    let card_body = document.createElement("div");
+    card_body.setAttribute("class", "card-body");
 
-  let btn1 = document.createElement("a");
-  btn1.setAttribute("class", "btn btn-primary");
-  btn1.setAttribute("href", "#");
-  btn1.innerHTML = "Movie";
-  card_body.appendChild(btn1);
-  btn1.addEventListener("click", (e) => {
-    removeCard();
+    let title = document.createElement("h5");
+    title.setAttribute("class", "card-title");
+    title.innerHTML = searchKeywords;
+    card_body.appendChild(title);
 
-    fetch("https://www.omdbapi.com/?apikey=d4456abe&s=" + searchKeywords)
-      .then((response) => response.json())
-      .then((data) => returnMovie(data));
-  });
+    let btn1 = document.createElement("a");
+    btn1.setAttribute("class", "btn btn-primary");
+    btn1.setAttribute("href", "#");
+    btn1.innerHTML = "Movie";
+    card_body.appendChild(btn1);
+    btn1.addEventListener("click", (e) => {
+      removeCard();
 
-  let btn2 = document.createElement("a");
-  btn2.setAttribute("class", "btn btn-primary");
-  btn2.setAttribute("href", "#");
-  btn2.innerHTML = "GIF";
-  card_body.appendChild(btn2);
-  btn2.addEventListener("click", (e) => {
-    removeCard();
+      fetch("https://www.omdbapi.com/?apikey=d4456abe&s=" + searchKeywords)
+        .then((response) => response.json())
+        .then((data) => returnMovie(data));
+    });
 
-    fetch(
-      `https://api.giphy.com/v1/gifs/search?q=${searchKeywords}&api_key=yJeTQ6x4o0orV1k3I2gY48VsnE61Ujec&limit=12`
-    )
-      .then((response) => response.json())
-      .then((data) => returnGIF(data));
-  });
+    let btn2 = document.createElement("a");
+    btn2.setAttribute("class", "btn btn-primary");
+    btn2.setAttribute("href", "#");
+    btn2.innerHTML = "GIF";
+    card_body.appendChild(btn2);
+    btn2.addEventListener("click", (e) => {
+      removeCard();
 
-  cards.appendChild(card_body);
-  document.getElementById("card_container").appendChild(cards);
+      fetch(
+        `https://api.giphy.com/v1/gifs/search?q=${searchKeywords}&api_key=yJeTQ6x4o0orV1k3I2gY48VsnE61Ujec&limit=12`
+      )
+        .then((response) => response.json())
+        .then((data) => returnGIF(data));
+    });
+
+    cards.appendChild(card_body);
+    document.getElementById("card_container").appendChild(cards);
+  } else {
+    alert("Please enter something, Moron!");
+  }
 });
 
 //createMovie card

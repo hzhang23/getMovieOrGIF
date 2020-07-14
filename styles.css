@@ -2,16 +2,36 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 1em;
 }
 
 #searchBar {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 2em;
 }
 
 #movieOrGif {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  margin: 1em;
+}
+
+#search {
+  width: 70vh;
+  border-color: #28a745;
+}
+
+.btn-primary {
+  margin: 10px;
+}
+.card-title {
+  text-align: center;
+}
+
+#googlePic {
+  display: flex;
   justify-content: center;
 }

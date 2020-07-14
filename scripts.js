@@ -62,7 +62,7 @@ document.getElementById("search_btn").addEventListener("click", (e) => {
   btn1.addEventListener("click", (e) => {
     removeCard();
 
-    fetch("http://www.omdbapi.com/?apikey=d4456abe&s=" + searchKeywords)
+    fetch("https://www.omdbapi.com/?apikey=d4456abe&s=" + searchKeywords)
       .then((response) => response.json())
       .then((data) => returnMovie(data));
   });
@@ -76,7 +76,7 @@ document.getElementById("search_btn").addEventListener("click", (e) => {
     removeCard();
 
     fetch(
-      `http://api.giphy.com/v1/gifs/search?q=${searchKeywords}&api_key=yJeTQ6x4o0orV1k3I2gY48VsnE61Ujec&limit=12`
+      `https://api.giphy.com/v1/gifs/search?q=${searchKeywords}&api_key=yJeTQ6x4o0orV1k3I2gY48VsnE61Ujec&limit=12`
     )
       .then((response) => response.json())
       .then((data) => returnGIF(data));

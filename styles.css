@@ -1,0 +1,17 @@
+#card_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#searchBar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#movieOrGif {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

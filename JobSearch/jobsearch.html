@@ -16,7 +16,49 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div id="search">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button
+        class="navbar-toggler"
+        id="searchButton"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <form class="form-inline my-2 my-lg-0">
+        <input
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Job Description"
+          aria-label="Search"
+          id="jobDes"
+        />
+        <input
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Location"
+          aria-label="Search"
+          id="location"
+        />
+        <input type="checkbox" id="fullTime" name="fullTime" />
+        <label for="fullTime"> Full Time</label><br />
+        <input type="checkbox" id="contract" name="contract" />
+        <label for="contract"> Contract</label><br />
+        <input type="checkbox" id="remote" name="remote" />
+        <label for="remote"> Remote</label><br />
+        <button class="btn btn btn-secondary btn-sm my-2 my-sm-0" type="submit">
+          Search
+        </button>
+      </form>
+    </nav>
+
+    <!-- <div id="search">
       <form id = "searchForm"></form>
       <input
         type="text"
@@ -27,7 +69,7 @@
       <input type="text" id="location" name="location" placeholder="location" />
       <button type="submit" id="searchButton">Create Job Search</button>
     </form>
-    </div>
+    </div> -->
 
     <div id="results"></div>
 

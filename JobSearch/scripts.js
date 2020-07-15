@@ -81,7 +81,8 @@ function returnJob(job) {
 
       jobDescription.innerHTML = job[i].description.substring(0, 99);
 
-      let howApply = document.createElement("a");
+      /**
+ * let howApply = document.createElement("a");
       howApply.setAttribute("class", "card-link");
       howApply.setAttribute("target", "_blank");
       let linkHead = job[i].how_to_apply.indexOf('"') + 1;
@@ -91,6 +92,28 @@ function returnJob(job) {
         job[i].how_to_apply.substring(linkHead, linkTail)
       );
       howApply.innerHTML = "How to apply";
+ */
+
+      let howApply = document.createElement("button");
+      howApply.setAttribute("class", "btn btn-link");
+      howApply.setAttribute("type", "button");
+      howApply.setAttribute("data-toggle", "collapse");
+      howApply.setAttribute("data-target", "#collapseExample");
+      howApply.setAttribute("aria-expanded", "false");
+      howApply.setAttribute("aria-controls", "collapseExample");
+      howApply.innerHTML = "Apply here";
+
+      let howApplyDiv = document.createElement("div");
+      howApplyDiv.setAttribute("class", "collapse");
+      howApplyDiv.setAttribute("id", "collapseExample");
+
+      let howApplyDivInner = document.createElement("div");
+      howApplyDivInner.setAttribute("class", "card card-body");
+      howApplyDivInner.innerHTML = job[i].how_to_apply;
+
+      howApplyDiv.appendChild(howApplyDivInner);
+
+      cardBody.appendChild(howApplyDiv);
 
       let jobDetails = document.createElement("a");
       jobDetails.setAttribute("class", "card-link");
